@@ -7,7 +7,9 @@ gcc main.c -Iadastra -Ladastra -ladastra -o main
 
 
 // Bibliotheque partager
+gcc -fPIC -c adastra/adastra.c -o adastra/adastra.o
 gcc -shared -o adastra/libadastra.so adastra/adastra.o
+
 gcc main.c -Iadastra -Ladastra -ladastra -o main
 export LD_LIBRARY_PATH=adastra:$LD_LIBRARY_PATH
 ./main

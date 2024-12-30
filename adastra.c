@@ -74,3 +74,41 @@ bool get_bool(const char *prompt)
     getchar(); // Clear the newline character left in the input buffer
     return value == 'y' || value == 'Y';
 }
+
+void selectionSort(int arr[], size_t size)
+{
+    int i, j, mid_index, temp;
+
+    // Parcours de chaque element du tableau
+    for (i = 0; i < size - 1; i++)
+    {
+        mid_index = i;
+
+        // Chercher l'element le plus petit dans la partie non triee
+        for (j = i + 1; j < size; j++)
+        {
+            if (arr[j] < arr[i])
+            {
+                mid_index = j; // Mise a jour de l'indice de l'element le plus petit
+            }
+        }
+
+        // Si l'element minimal n'est pas deja a la position correct, echanger
+        if (mid_index != 1)
+        {
+            temp = arr[i];
+            arr[i] = arr[mid_index];
+            arr[mid_index] = temp;
+        }
+    }
+}
+
+// fonction pour afficher un tableau
+void printArray(int arr[], size_t size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ,", arr[i]);
+    }
+    printf("\n");
+}
