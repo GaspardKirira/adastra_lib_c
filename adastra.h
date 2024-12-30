@@ -13,5 +13,6 @@ float get_float(const char *prompt);
 bool get_bool(const char *prompt);
 void selectionSort(int arr[], size_t size);
 void printArray(int arr[], size_t size);
+void bubbleSort(int arr[], size_t size);
 
 #endif // ADASTRA_H

@@ -112,3 +112,29 @@ void printArray(int arr[], size_t size)
     }
     printf("\n");
 }
+
+// Buble sort
+void bubbleSort(int arr[], size_t size)
+{
+    int i, j, temp;
+    int swapped;
+
+    for (int i = 0; i < size - 1; i++)
+    {
+        swapped = 0; // Aucune permutation au debut de la passe
+        for (int j = 0; j < size - 1 - i; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = 1; // Permutation effectuee
+            }
+        }
+        if (swapped == 0)
+        {
+            break;
+        }
+    }
+}
