@@ -14,5 +14,7 @@ bool get_bool(const char *prompt);
 void selectionSort(int arr[], size_t size);
 void printArray(int arr[], size_t size);
 void bubbleSort(int arr[], size_t size);
+void merge(int arr[], int left, int right);
+void mergeSort(int arr[], size_t size);
 
 #endif // ADASTRA_H

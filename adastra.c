@@ -113,7 +113,7 @@ void printArray(int arr[], size_t size)
     printf("\n");
 }
 
-// Buble sort
+// Bubble Sort
 void bubbleSort(int arr[], size_t size)
 {
     int i, j, temp;
@@ -137,4 +137,64 @@ void bubbleSort(int arr[], size_t size)
             break;
         }
     }
+}
+
+// Merge Sort
+void merge(int arr[], int left, int right)
+{
+    if (left < right)
+    {
+        int mid = left + (right - left) / 2; // Trouver le point médian
+
+        merge(arr, left, mid);      // Trier la première moitié
+        merge(arr, mid + 1, right); // Trier la deuxième moitié
+
+        // Fusionner les deux moitiés triées
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        int leftArr[n1], rightArr[n2];
+
+        // Remplir les tableaux temporaires
+        for (int i = 0; i < n1; i++)
+            leftArr[i] = arr[left + i];
+        for (int j = 0; j < n2; j++)
+            rightArr[j] = arr[mid + 1 + j];
+
+        // Fusionner les tableaux temporaires
+        int i = 0, j = 0, k = left;
+        while (i < n1 && j < n2)
+        {
+            if (leftArr[i] <= rightArr[j])
+            {
+                arr[k] = leftArr[i];
+                i++;
+            }
+            else
+            {
+                arr[k] = rightArr[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copier les éléments restants, s'il y en a
+        while (i < n1)
+        {
+            arr[k] = leftArr[i];
+            i++;
+            k++;
+        }
+        while (j < n2)
+        {
+            arr[k] = rightArr[j];
+            j++;
+            k++;
+        }
+    }
+}
+
+void mergeSort(int arr[], size_t size)
+{
+    merge(arr, 0, size - 1);
 }
